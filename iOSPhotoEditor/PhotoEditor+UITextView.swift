@@ -41,6 +41,9 @@ extension PhotoEditorViewController: UITextViewDelegate {
             else {
                 return
         }
+        imageView.image = self.canvasView.toImage()
+        imageArray[index] = imageView.image!
+        textView.text = ""
         activeTextView = nil
         textView.font = self.lastTextViewFont!
         UIView.animate(withDuration: 0.3,

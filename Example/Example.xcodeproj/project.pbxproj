@@ -13,6 +13,8 @@
 		05D951DA1EBB868F00DC2299 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05D951D81EBB868F00DC2299 /* Main.storyboard */; };
 		05D951DC1EBB868F00DC2299 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05D951DB1EBB868F00DC2299 /* Assets.xcassets */; };
 		05D951DF1EBB868F00DC2299 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05D951DD1EBB868F00DC2299 /* LaunchScreen.storyboard */; };
+		61D3EBB32468A511001F7904 /* MultipleImagesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61D3EBB12468A511001F7904 /* MultipleImagesCollectionViewCell.xib */; };
+		61D3EBB42468A511001F7904 /* MultipleImagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D3EBB22468A511001F7904 /* MultipleImagesCollectionViewCell.swift */; };
 		FDDB06259DD13CA08BA46EDD /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26C7273557EAB2ED7CDEDA80 /* Pods_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +30,8 @@
 		1CC43320DFA0E5FB03587FA7 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		26C7273557EAB2ED7CDEDA80 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34EDA09DBDA53A2A66F9E859 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		61D3EBB12468A511001F7904 /* MultipleImagesCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MultipleImagesCollectionViewCell.xib; path = ../../MultipleImagesCollectionViewCell.xib; sourceTree = "<group>"; };
+		61D3EBB22468A511001F7904 /* MultipleImagesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultipleImagesCollectionViewCell.swift; path = ../../MultipleImagesCollectionViewCell.swift; sourceTree = "<group>"; };
 		9EEB4D5FF7C66761863E5E50 /* Pods-editorTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-editorTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-editorTest/Pods-editorTest.release.xcconfig"; sourceTree = "<group>"; };
 		F2FE6D2857E80A528393FDF8 /* Pods-editorTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-editorTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-editorTest/Pods-editorTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,6 +69,8 @@
 		05D951D31EBB868F00DC2299 /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				61D3EBB22468A511001F7904 /* MultipleImagesCollectionViewCell.swift */,
+				61D3EBB12468A511001F7904 /* MultipleImagesCollectionViewCell.xib */,
 				05D951D41EBB868F00DC2299 /* AppDelegate.swift */,
 				05D951D61EBB868F00DC2299 /* ViewController.swift */,
 				058A26061EBC5448007256A1 /* img.jpg */,
@@ -160,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				058A26071EBC5448007256A1 /* img.jpg in Resources */,
+				61D3EBB32468A511001F7904 /* MultipleImagesCollectionViewCell.xib in Resources */,
 				05D951DF1EBB868F00DC2299 /* LaunchScreen.storyboard in Resources */,
 				05D951DC1EBB868F00DC2299 /* Assets.xcassets in Resources */,
 				05D951DA1EBB868F00DC2299 /* Main.storyboard in Resources */,
@@ -214,6 +221,7 @@
 			files = (
 				05D951D71EBB868F00DC2299 /* ViewController.swift in Sources */,
 				05D951D51EBB868F00DC2299 /* AppDelegate.swift in Sources */,
+				61D3EBB42468A511001F7904 /* MultipleImagesCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

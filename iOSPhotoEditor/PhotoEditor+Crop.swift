@@ -15,6 +15,7 @@ extension PhotoEditorViewController: CropViewControllerDelegate {
     public func cropViewController(_ controller: CropViewController, didFinishCroppingImage image: UIImage, transform: CGAffineTransform, cropRect: CGRect) {
         controller.dismiss(animated: true, completion: nil)
         self.setImageView(image: image)
+        imageArray[index] = image
     }
     
     public func cropViewControllerDidCancel(_ controller: CropViewController) {

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+
 // MARK: - Control
 public enum control {
     case crop
@@ -20,9 +21,22 @@ public enum control {
     case clear
 }
 
+
 extension PhotoEditorViewController {
 
+    
+    
      //MARK: Top Toolbar
+    
+    @IBAction func rotateButtonTapped(_sender: UIButton) {
+     //   rotateButton.imageView?.image = UIImage(named: "rotateImage")!
+        self.imageView.image = imageView.image?.rotate(radians: .pi/2)
+        imageArray[index] = self.imageView.image
+     //   let img = self.canvasView.toImage()
+        photoEditorDelegate?.doneEditing(image: self.imageView.image! )
+        
+    }
+    
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
         photoEditorDelegate?.canceledEditing()
@@ -32,7 +46,7 @@ extension PhotoEditorViewController {
     @IBAction func cropButtonTapped(_ sender: UIButton) {
         let controller = CropViewController()
         controller.delegate = self
-        controller.image = image
+        controller.image = imageArray[index]
         let navController = UINavigationController(rootViewController: controller)
         present(navController, animated: true, completion: nil)
     }
@@ -77,6 +91,11 @@ extension PhotoEditorViewController {
         canvasImageView.isUserInteractionEnabled = true
         hideToolbar(hide: false)
         isDrawing = false
+        
+        imageView.image = self.canvasView.toImage()
+        imageArray[index] = imageView.image!
+        canvasImageView.image = UIImage()
+       
     }
     
     //MARK: Bottom Toolbar
@@ -101,9 +120,12 @@ extension PhotoEditorViewController {
     }
     
     @IBAction func continueButtonPressed(_ sender: Any) {
-        let img = self.canvasView.toImage()
-        photoEditorDelegate?.doneEditing(image: img)
-        self.dismiss(animated: true, completion: nil)
+        let img:UIImage? = self.canvasView.toImage()
+        photoEditorDelegate?.doneEditing(image: img!)
+        self.delegate?.messageData(data: imageArray)
+       
+          self.dismiss(animated: true, completion: nil)
+  
     }
 
     //MAKR: helper methods
@@ -136,4 +158,27 @@ extension PhotoEditorViewController {
         }
     }
     
+}
+extension UIImage {
+    func rotate(radians: Float) -> UIImage? {
+        var newSize = CGRect(origin: CGPoint.zero, size: self.size).applying(CGAffineTransform(rotationAngle: CGFloat(radians))).size
+        // Trim off the extremely small float value to prevent core graphics from rounding it up
+        newSize.width = floor(newSize.width)
+        newSize.height = floor(newSize.height)
+
+        UIGraphicsBeginImageContextWithOptions(newSize, false, self.scale)
+        let context = UIGraphicsGetCurrentContext()!
+
+        // Move origin to middle
+        context.translateBy(x: newSize.width/2, y: newSize.height/2)
+        // Rotate around middle
+        context.rotate(by: CGFloat(radians))
+        // Draw the image at its center
+        self.draw(in: CGRect(x: -self.size.width/2, y: -self.size.height/2, width: self.size.width, height: self.size.height))
+
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return newImage
+    }
 }
